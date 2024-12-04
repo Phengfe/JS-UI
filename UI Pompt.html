@@ -80,27 +80,12 @@
   <h1>Buttons from Multiple Lists with Colors</h1>
   <textarea id="textArea" placeholder="Type something here..."></textarea>
 
-  <script>
-    
-    // Function to copy text from the textarea
-    function copyText() {
-      const textArea = document.getElementById('textArea');
-      textArea.select(); // Select all text
-      document.execCommand('copy'); // Copy the text to clipboard
-      alert('Text copied to clipboard!');
-    }
+  <div class="action-buttons">
+    <button id="copyButton">Copy Text</button>
+    <button id="clearButton">Clear Text</button>
+  </div>
 
-    // Function to clear text from the textarea
-    function clearText() {
-      const textArea = document.getElementById('textArea');
-      textArea.value = ""; // Clear the value
-    }
-
-    // Attach event listeners to Copy and Clear buttons
-    document.getElementById('copyButton').addEventListener('click', copyText);
-    document.getElementById('clearButton').addEventListener('click', clearText);
-
-  </script>
+  
   <!-- Containers for buttons from each list -->
   <div class="buttons-container list-1">
     <h3>ไกล กล้อง บรรยากากาศ </h3>
@@ -121,11 +106,6 @@
   <div class="buttons-container list-5">
     <h3>มือเท้าเคลื่อนไหว,รสนิยม ใบหน้ายิ้มแย้ม แสงตกหน้า, คุณภาพ มือเท้าไม่เกิน</h3>
     <div id="list5Container"></div>
-  </div>
-
-  <div class="action-buttons">
-    <button id="copyButton">Copy Text</button>
-    <button id="clearButton">Clear Text</button>
   </div>
 
   <script>
@@ -155,6 +135,24 @@
       document.execCommand('copy'); // Copy the text to clipboard
       alert('Text copied to clipboard!');
     }
+  
+    // Function to copy text from the textarea
+    function copyText() {
+      const textArea = document.getElementById('textArea');
+      textArea.select(); // Select all text
+      document.execCommand('copy'); // Copy the text to clipboard
+      alert('Text copied to clipboard!');
+    }
+
+    // Function to clear text from the textarea
+    function clearText() {
+      const textArea = document.getElementById('textArea');
+      textArea.value = ""; // Clear the value
+    }
+
+    // Attach event listeners to Copy and Clear buttons
+    document.getElementById('copyButton').addEventListener('click', copyText);
+    document.getElementById('clearButton').addEventListener('click', clearText);
 
     // Function to clear text from the textarea
     function clearText() {
