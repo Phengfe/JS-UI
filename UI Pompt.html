@@ -13,7 +13,7 @@
     textarea {
       padding: 10px;
       font-size: 16px;
-      width: 300px;
+      width: 100%;
       height: 100px;
       margin-bottom: 20px;
       resize: both;
@@ -80,59 +80,8 @@
   <h1>Buttons from Multiple Lists with Colors</h1>
   <textarea id="textArea" placeholder="Type something here..."></textarea>
 
-  <!-- Containers for buttons from each list -->
-  <div class="buttons-container list-1">
-    <h3>List 1 (Blue Buttons)</h3>
-    <div id="list1Container"></div>
-  </div>
-  <div class="buttons-container list-2">
-    <h3>List 2 (Green Buttons)</h3>
-    <div id="list2Container"></div>
-  </div>
-  <div class="buttons-container list-3">
-    <h3>List 3 (Red Buttons)</h3>
-    <div id="list3Container"></div>
-  </div>
-  <div class="buttons-container list-4">
-    <h3>List 4 (Yellow Buttons)</h3>
-    <div id="list4Container"></div>
-  </div>
-  <div class="buttons-container list-5">
-    <h3>List 5 (Pink Buttons)</h3>
-    <div id="list5Container"></div>
-  </div>
-
-  <div class="action-buttons">
-    <button id="copyButton">Copy Text</button>
-    <button id="clearButton">Clear Text</button>
-  </div>
-
   <script>
-    // Data lists
-    const list1 = ['Blue 1', 'Blue 2', 'Blue 3'];
-    const list2 = ['Green 1', 'Green 2', 'Green 3'];
-    const list3 = ['Red 1', 'Red 2', 'Red 3'];
-    const list4 = ['Yellow 1', 'Yellow 2', 'Yellow 3'];
-    const list5 = ['Pink 1', 'Pink 2', 'Pink 3'];
-
-    // Function to create buttons dynamically
-    function createButtons(list, containerId) {
-      const container = document.getElementById(containerId);
-
-      list.forEach(item => {
-        const button = document.createElement('button'); // Create button
-        button.textContent = `Add "${item}"`; // Set button text
-        button.addEventListener('click', () => addText(item)); // Attach event listener
-        container.appendChild(button); // Append button to container
-      });
-    }
-
-    // Function to add text to the textarea
-    function addText(text) {
-      const textArea = document.getElementById('textArea');
-      textArea.value += ` ${text}`;
-    }
-
+    
     // Function to copy text from the textarea
     function copyText() {
       const textArea = document.getElementById('textArea');
@@ -150,6 +99,75 @@
     // Attach event listeners to Copy and Clear buttons
     document.getElementById('copyButton').addEventListener('click', copyText);
     document.getElementById('clearButton').addEventListener('click', clearText);
+
+  </script>
+  <!-- Containers for buttons from each list -->
+  <div class="buttons-container list-1">
+    <h3>ไกล กล้อง บรรยากากาศ </h3>
+    <div id="list1Container"></div>
+  </div>
+  <div class="buttons-container list-2">
+    <h3>กลาง ใส่ชุด ทำอะไร</h3>
+    <div id="list2Container"></div>
+  </div>
+  <div class="buttons-container list-3">
+    <h3>ใกล้ หน้าตา ทรงผม </h3>
+    <div id="list3Container"></div>
+  </div>
+  <div class="buttons-container list-4">
+    <h3>ร่างกายที่อยากเห็น</h3>
+    <div id="list4Container"></div>
+  </div>
+  <div class="buttons-container list-5">
+    <h3>มือเท้าเคลื่อนไหว,รสนิยม ใบหน้ายิ้มแย้ม แสงตกหน้า, คุณภาพ มือเท้าไม่เกิน</h3>
+    <div id="list5Container"></div>
+  </div>
+
+  <div class="action-buttons">
+    <button id="copyButton">Copy Text</button>
+    <button id="clearButton">Clear Text</button>
+  </div>
+
+  <script>
+    // Data lists
+    const list1 = ['A serene photo of a woman', 'surrounded by lush green forest,', 'early morning light,','soft bokeh,','shot with a Sony Alpha 7R, 50mm f/1.8 lens, shallow depth of field.'];
+    const list2 = ['practicing yoga on a wooden deck,', 'gracefully holding a tree pose (vrikshasana),', 'Green 3'];
+    const list3 = ['beautiful Thai woman with a great model curvy figure and hourglass shape, seductive face, beautiful,', 'brunette hair, ponytail,', 'blue eyes, wide jaw','fit, perfect, slutty look,'];
+    const list4 = ['Yellow 1', 'Yellow 2', 'Yellow 3'];
+    const list5 = ['arms raised high, motion blur in the arms and legs,', 'wearing a tasteful,with a confident and composed expression,smile a little and energetic expression, reflecting on her face,', 'with detailed fabric texture and lighting,HD quality face, realistic ,highly detailed realistic hands , natural hand posture HD quality, perfectly formed fingers, One hand must have no more than five fingers, beautiful clear,'];
+
+    // Function to create buttons dynamically
+    function createButtons(list, containerId) {
+      const container = document.getElementById(containerId);
+
+      list.forEach(item => {
+        const button = document.createElement('button'); // Create button
+        button.textContent = `Add "${item}"`; // Set button text
+        button.addEventListener('click', () => addText(item)); // Attach event listener
+        container.appendChild(button); // Append button to container
+      });
+    }
+
+    // Function to copy text from the textarea
+    function copyText() {
+      const textArea = document.getElementById('textArea');
+      textArea.select(); // Select all text
+      document.execCommand('copy'); // Copy the text to clipboard
+      alert('Text copied to clipboard!');
+    }
+
+    // Function to clear text from the textarea
+    function clearText() {
+      const textArea = document.getElementById('textArea');
+      textArea.value = ""; // Clear the value
+    }
+    // Function to add text to the textarea
+    function addText(text) {
+      const textArea = document.getElementById('textArea');
+      textArea.value += ` ${text}`;
+    }
+
+    
 
     // Create buttons for each list
     createButtons(list1, 'list1Container'); // List 1 with blue buttons
