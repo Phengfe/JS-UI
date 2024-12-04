@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons from Multiple Lists with Colors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    textarea {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      height: 100px;
+      margin-bottom: 20px;
+      resize: both;
+    }
+    .buttons-container {
+      margin-top: 20px;
+    }
+    .list-container {
+      margin: 20px 0;
+    }
+    .list-container h3 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    /* Define button colors for each list */
+    .list-1 button {
+      background-color: #007BFF; /* Blue */
+      color: white;
+      border: none;
+    }
+    .list-1 button:hover {
+      background-color: #0056b3;
+    }
+    .list-2 button {
+      background-color: #28a745; /* Green */
+      color: white;
+      border: none;
+    }
+    .list-2 button:hover {
+      background-color: #218838;
+    }
+    .list-3 button {
+      background-color: #dc3545; /* Red */
+      color: white;
+      border: none;
+    }
+    .list-3 button:hover {
+      background-color: #c82333;
+    }
+    .list-4 button {
+      background-color: #ffc107; /* Yellow */
+      color: white;
+      border: none;
+    }
+    .list-4 button:hover {
+      background-color: #e0a800;
+    }
+    .list-5 button {
+      background-color: #e83e8c; /* Pink */
+      color: white;
+      border: none;
+    }
+    .list-5 button:hover {
+      background-color: #d6336c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Buttons from Multiple Lists with Colors</h1>
+  <textarea id="textArea" placeholder="Type something here..."></textarea>
+
+  <!-- Containers for buttons from each list -->
+  <div class="buttons-container list-1">
+    <h3>List 1 (Blue Buttons)</h3>
+    <div id="list1Container"></div>
+  </div>
+  <div class="buttons-container list-2">
+    <h3>List 2 (Green Buttons)</h3>
+    <div id="list2Container"></div>
+  </div>
+  <div class="buttons-container list-3">
+    <h3>List 3 (Red Buttons)</h3>
+    <div id="list3Container"></div>
+  </div>
+  <div class="buttons-container list-4">
+    <h3>List 4 (Yellow Buttons)</h3>
+    <div id="list4Container"></div>
+  </div>
+  <div class="buttons-container list-5">
+    <h3>List 5 (Pink Buttons)</h3>
+    <div id="list5Container"></div>
+  </div>
+
+  <div class="action-buttons">
+    <button id="copyButton">Copy Text</button>
+    <button id="clearButton">Clear Text</button>
+  </div>
+
+  <script>
+    // Data lists
+    const list1 = ['Blue 1', 'Blue 2', 'Blue 3'];
+    const list2 = ['Green 1', 'Green 2', 'Green 3'];
+    const list3 = ['Red 1', 'Red 2', 'Red 3'];
+    const list4 = ['Yellow 1', 'Yellow 2', 'Yellow 3'];
+    const list5 = ['Pink 1', 'Pink 2', 'Pink 3'];
+
+    // Function to create buttons dynamically
+    function createButtons(list, containerId) {
+      const container = document.getElementById(containerId);
+
+      list.forEach(item => {
+        const button = document.createElement('button'); // Create button
+        button.textContent = `Add "${item}"`; // Set button text
+        button.addEventListener('click', () => addText(item)); // Attach event listener
+        container.appendChild(button); // Append button to container
+      });
+    }
+
+    // Function to add text to the textarea
+    function addText(text) {
+      const textArea = document.getElementById('textArea');
+      textArea.value += ` ${text}`;
+    }
+
+    // Function to copy text from the textarea
+    function copyText() {
+      const textArea = document.getElementById('textArea');
+      textArea.select(); // Select all text
+      document.execCommand('copy'); // Copy the text to clipboard
+      alert('Text copied to clipboard!');
+    }
+
+    // Function to clear text from the textarea
+    function clearText() {
+      const textArea = document.getElementById('textArea');
+      textArea.value = ""; // Clear the value
+    }
+
+    // Attach event listeners to Copy and Clear buttons
+    document.getElementById('copyButton').addEventListener('click', copyText);
+    document.getElementById('clearButton').addEventListener('click', clearText);
+
+    // Create buttons for each list
+    createButtons(list1, 'list1Container'); // List 1 with blue buttons
+    createButtons(list2, 'list2Container'); // List 2 with green buttons
+    createButtons(list3, 'list3Container'); // List 3 with red buttons
+    createButtons(list4, 'list4Container'); // List 4 with yellow buttons
+    createButtons(list5, 'list5Container'); // List 5 with pink buttons
+  </script>
+</body>
+</html>
